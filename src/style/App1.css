@@ -1,0 +1,27 @@
+nav {
+  display: inline-block;
+    width:100%;
+ 
+    margin: 0 0 1em 0;
+    padding:0;
+    background: #000066;
+    color:white
+}
+
+
+nav li {
+  display: inline-block;
+  padding: 10px;
+  font-size: 20px;
+  text-indent: 70px;
+  color:white
+}
+
+
+nav ul li:last-child {
+  text-indent: 600px;
+}
+nav ul li:first-child {
+  text-indent: -10px;
+}
+
