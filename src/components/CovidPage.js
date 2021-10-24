@@ -10,9 +10,7 @@ this.handleSubmit();
   }
 
 handleSubmit = event => {
-    this.state = {
-      term: 'covid'
-  };
+  this.setState({term: 'covid'}); 
     this.props.onLoad(this.state.term);
 }
 
