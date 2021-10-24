@@ -7,7 +7,6 @@ const VideoDetail = ({video}) => {
 
     const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`;
     console.log(typeof(video));
-    debugger;
     return (
         <div>
             <div className='ui embed'>
@@ -16,6 +15,7 @@ const VideoDetail = ({video}) => {
             <div className='ui segment'>
                 <h4 className='ui header'>{video.snippet.title}</h4>
                 <p>{video.snippet.description}</p>
+                <p>{video.snippet.publishedAt}</p>
             </div>
         </div>
 
