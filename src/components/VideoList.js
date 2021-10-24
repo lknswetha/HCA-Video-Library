@@ -6,7 +6,6 @@ const VideoList = ({videos , handleVideoSelect,handleVideoOnLoad}) => {
     const renderedVideos =  videos.map((video) => {
         
         return <VideoItem key={video.id.videoId} video={video} handleVideoSelect={handleVideoSelect} handleVideoOnLoad ={handleVideoOnLoad} />
-        console.log(video.id);
     });
 
     return <div className='ui relaxed divided list'>{renderedVideos}</div>;
