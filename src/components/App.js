@@ -43,7 +43,7 @@ class App extends React.Component {
           <ul class ="ui secondary pointing menu">
           <li><h1>HCM</h1></li>
             <li ><Link to={{pathname :"/covid",
-                                             data:this.state}}>CoVid</Link></li>
+                                             data:this.state}}>Covid Videos</Link></li>
             <li ><Link to={{pathname :"/all",
                                              data:this.state}}>AllVideo</Link></li>
             <li><Link to="/search"><SearchBar handleFormSubmit={this.handleSubmit}/></Link></li>
