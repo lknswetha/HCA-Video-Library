@@ -6,7 +6,7 @@ import VideoDetail from './VideoDetail';
 import CovidPage from './CovidPage';
 import AllVideoPage from './AllVideoPage';
 import '../style/App1.css';
-import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Link, Route, Switch, Redirect } from 'react-router-dom';
 
 class App extends React.Component {
     constructor(props) {
@@ -35,19 +35,18 @@ class App extends React.Component {
     }
 
     render() {
-         debugger;
         return (
             <div style={{marginTop:'1em'}}>
     <BrowserRouter>
         <nav>
           <ul class ="ui secondary pointing menu">
-          <li><h1>HCM</h1></li>
+          <li><h1>HCA Video Library</h1></li>
             <li ><Link to={{pathname :"/covid",
                                              data:this.state}}>Covid Videos</Link></li>
             <li ><Link to={{pathname :"/all",
-                                             data:this.state}}>AllVideo</Link></li>
+                                             data:this.state}}>AllVideos</Link></li>
             <li><Link to="/search"><SearchBar handleFormSubmit={this.handleSubmit}/></Link></li>
-            <li><h2>Test User</h2></li>
+            <li><h2>HCA User</h2></li>
           </ul>
         </nav>
         <Switch>
@@ -59,6 +58,9 @@ class App extends React.Component {
           </Route>
           <Route path="/search">
           </Route>
+           <Route exact path="/" render={() => (
+                <Redirect to="/covid"/>
+            )}/>
         </Switch>
       </BrowserRouter>    
              <div className='ui grid'>
