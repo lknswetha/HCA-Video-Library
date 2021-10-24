@@ -15,7 +15,6 @@ handleSubmit = event => {
 }
 
 componentWillMount() {
-  debugger;
   window.addEventListener('trigger',()=>{this.handleSubmit()});
  }
 
