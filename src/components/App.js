@@ -11,7 +11,6 @@ import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 class App extends React.Component {
     constructor(props) {
         super(props);
-          
         this.state = {
             videos: [],
             selectedVideo: null
@@ -27,11 +26,16 @@ class App extends React.Component {
             videos: response.data.items
         })
     };
-    handleVideoSelect = (video) => {
-        this.setState({selectedVideo: video})
+    handleVideoSelect = (video) => { 
+            this.setState({selectedVideo: video}); 
+    }
+
+    handleVideoOnLoad = (video) => {
+            this.setState({selectedVideo: this.state.videos[0]});
     }
 
     render() {
+         debugger;
         return (
             <div style={{marginTop:'1em'}}>
     <BrowserRouter>
@@ -49,45 +53,24 @@ class App extends React.Component {
         <Switch>
           <Route path="/covid">
             <CovidPage onLoad={this.handleSubmit} />
-            <div className='ui grid'>
-                    <div className="ui row">
-                        <div className="eleven wide column">
-                            <VideoDetail video={this.state.selectedVideo}/>
-                        </div>
-                        <div className="five wide column">
-                            <VideoList handleVideoSelect={this.handleVideoSelect} videos={this.state.videos}/>
-                        </div>
-                    </div>
-                </div>
           </Route>
           <Route path="/all">
             <AllVideoPage onLoad={this.handleSubmit} />
-            <div className='ui grid'>
-                    <div className="ui row">
-                        <div className="eleven wide column">
-                            <VideoDetail video={this.state.selectedVideo}/>
-                        </div>
-                        <div className="five wide column">
-                            <VideoList handleVideoSelect={this.handleVideoSelect} videos={this.state.videos}/>
-                        </div>
-                    </div>
-                </div>
           </Route>
           <Route path="/search">
+          </Route>
+        </Switch>
+      </BrowserRouter>    
              <div className='ui grid'>
                     <div className="ui row">
                         <div className="eleven wide column">
                             <VideoDetail video={this.state.selectedVideo}/>
                         </div>
                         <div className="five wide column">
-                            <VideoList handleVideoSelect={this.handleVideoSelect} videos={this.state.videos}/>
+                            <VideoList handleVideoSelect={this.handleVideoSelect} handleVideoOnLoad={this.handleVideoOnLoad}  videos={this.state.videos}/>
                         </div>
                     </div>
-                </div>
-          </Route>
-        </Switch>
-      </BrowserRouter>    
-                
+                </div>      
     </div>
         )
     }

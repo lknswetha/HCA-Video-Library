@@ -4,15 +4,13 @@ class AllVideoPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      term: ''
+      term: 'HCA'
   };
-this.handleSubmit();
+  this.handleSubmit();
   }
 
 handleSubmit = event => {
-    this.state = {
-      term: ''
-  };
+    this.setState({term: 'HCA'}); 
     this.props.onLoad(this.state.term);
 }
 
