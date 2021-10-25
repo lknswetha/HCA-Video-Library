@@ -39,16 +39,24 @@ class App extends React.Component {
             <div style={{marginTop:'1em'}}>
     <BrowserRouter>
         <nav>
-          <ul class ="ui secondary pointing menu">
-          <li><h1>HCA Video Library</h1></li>
-            <li ><Link to={{pathname :"/covid",
-                                             data:this.state}}>Covid Videos</Link></li>
+            <section style={{marginTop: "20px", color: "white"}}>
+            HCA Video Library                    
+            </section>
+            <section>
+                <div>
+                <ul>
+                <li ><Link to={{pathname :"/covid",
+                                             data:this.state}}>Covid-19 Videos</Link></li>
             <li ><Link to={{pathname :"/all",
-                                             data:this.state}}>AllVideos</Link></li>
+                                             data:this.state}}>All Videos</Link></li>
             <li><Link to="/search"><SearchBar handleFormSubmit={this.handleSubmit}/></Link></li>
-            <li><h2>HCA User</h2></li>
-          </ul>
-        </nav>
+                </ul>
+                </div>
+            </section>
+            <div style={{marginTop: "22px", color: "white"}}>
+                <span>HCA User</span>
+            </div>
+            </nav>
         <Switch>
           <Route path="/covid">
             <CovidPage onLoad={this.handleSubmit} />
